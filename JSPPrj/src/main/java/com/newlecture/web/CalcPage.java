@@ -18,6 +18,19 @@ public class CalcPage extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String exp = "";
+		Cookie[] cookies = request.getCookies();
+		
+		
+		if(cookies != null) {			
+			for (Cookie c: cookies) {				
+				if(c.getName().equals("exp")) {
+					exp = c.getValue();
+					break;
+				}
+			}
+		}
+		
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		
@@ -48,7 +61,7 @@ public class CalcPage extends HttpServlet {
 				+ "			<form action=\"calc3\" method=\"post\">\r\n"
 				+ "				<table>\r\n"
 				+ "					<tr>\r\n"
-				+ "						<td class=\"output\" colspan=4>%d</td>\r\n"
+				+ "						<td class=\"output\" colspan=4>%s</td>\r\n"
 				+ "					</tr>\r\n"
 				+ "					<tr>\r\n"
 				+ "						<td><input type=\"submit\" name=\"operator\" value=\"CE\"/></td>\r\n"
@@ -60,7 +73,7 @@ public class CalcPage extends HttpServlet {
 				+ "						<td><input type=\"submit\" name=\"value\" value=\"7\"/></td>\r\n"
 				+ "						<td><input type=\"submit\" name=\"value\" value=\"8\"/></td>\r\n"
 				+ "						<td><input type=\"submit\" name=\"value\" value=\"9\"/></td>\r\n"
-				+ "						<td><input type=\"submit\" name=\"operator\" value=\"X\"/></td>\r\n"
+				+ "						<td><input type=\"submit\" name=\"operator\" value=\"*\"/></td>\r\n"
 				+ "					</tr>\r\n"
 				+ "					<tr>\r\n"
 				+ "						<td><input type=\"submit\" name=\"value\" value=\"4\"/></td>\r\n"
@@ -83,7 +96,7 @@ public class CalcPage extends HttpServlet {
 				+ "				</table>\r\n"
 				+ "			</form>\r\n"
 				+ "		</body>\r\n"
-				+ "		</html>", 3+4);
+				+ "		</html>",exp );
 		
 	}
 
