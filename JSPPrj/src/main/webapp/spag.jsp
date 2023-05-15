@@ -20,6 +20,9 @@ else
 <title>Insert title here</title>
 </head>
 <body>
-	<%=result%>입니다.
+	<%=request.getAttribute("result")%>입니다.
+	${result}
+	${names[0] }
+	${notice.title }
 </body>
 </html>
