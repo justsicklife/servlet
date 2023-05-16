@@ -28,7 +28,7 @@ else
 	${names[0] }
 	${notice.title }
 	${result}
-	${param.n }
+	${param.n/2 }
 	${header.accept }
 </body>
 </html>
