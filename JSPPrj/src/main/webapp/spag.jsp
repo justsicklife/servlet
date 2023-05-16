@@ -19,10 +19,16 @@ else
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<% 
+	pageContext.setAttribute("result", "hello");
+%>
 <body>
 	<%=request.getAttribute("result")%>입니다.
 	${result}
 	${names[0] }
 	${notice.title }
+	${result}
+	${param.n }
+	${header.accept }
 </body>
 </html>
