@@ -16,7 +16,6 @@ public class Notice {
 	}
 	
 	public Notice(int id, String title, String writerId, Date regdate, String hit, String files, String content) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.writerId = writerId;
@@ -24,6 +23,14 @@ public class Notice {
 		this.hit = hit;
 		this.files = files;
 		this.content = content;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override
