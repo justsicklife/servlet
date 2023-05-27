@@ -176,9 +176,9 @@
 					</thead>
 					<tbody>
 					
-					<c:forEach var="n" items="${ list}">					
+					<c:forEach var="n" items="${ list}" varStatus="st">					
 						<tr>
-							<td>${n.id }</td>
+							<td>${st.index} / ${n.id }</td>
 							<td class="title indent text-align-left">
 							<a href="detail?id=${n.id }">${n.title }</a>
 							</td>
