@@ -22,7 +22,6 @@ import com.newlecture.web.entity.Notice;
 public class NoticeListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		List<Notice> list = new ArrayList<>();
 		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
 		String sql = "SELECT * FROM NOTICE";
@@ -32,7 +31,6 @@ public class NoticeListController extends HttpServlet {
 			Connection con = DriverManager.getConnection(url, "NEWLEC", "1234");
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);
-			
 			while (rs.next()) {
 				int id = rs.getInt("ID");
 				String title = rs.getString("TITLE");
@@ -58,7 +56,7 @@ public class NoticeListController extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		request
-		.getRequestDispatcher("/notice/list.jsp")
+		.getRequestDispatcher("/WEB-INF/view/notice/list.jsp")
 		.forward(request, response);
 	}
 }

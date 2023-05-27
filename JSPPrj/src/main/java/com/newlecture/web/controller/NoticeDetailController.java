@@ -53,29 +53,18 @@ public class NoticeDetailController extends HttpServlet{
 			
 			request.setAttribute("n", notice);
 			
-			/*
-			request.setAttribute("title", title);
-			request.setAttribute("writerId", writerId);
-			request.setAttribute("regdate", regdate);
-			request.setAttribute("hit", hit);
-			request.setAttribute("files", files);
-			request.setAttribute("content", content);
-			 */
-			
 			rs.close();
 			st.close();
 			con.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();	
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
 		
-		request.getRequestDispatcher("/notice/detail.jsp")
+		request.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp")
 		.forward(request, response);
 		
 		

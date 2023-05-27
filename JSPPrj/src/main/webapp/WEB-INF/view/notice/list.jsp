@@ -1,9 +1,8 @@
-
 <%@page import="com.newlecture.web.entity.Notice"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-      
+
 <!DOCTYPE html>
 <html>
 
@@ -177,10 +176,9 @@
 					</thead>
 					<tbody>
 					
-					<% 
-					List<Notice> list = (List<Notice>)request.getAttribute("list");
-					for(Notice n : list) {
-						pageContext.setAttribute("n",n);
+					<% List<Notice> list = (List<Notice>)request.getAttribute("list");
+						for(Notice n : list) {
+							pageContext.setAttribute("n", n);
 					%>
 					
 					<tr>
@@ -192,7 +190,7 @@
 						<td>${n.regdate }</td>
 						<td>${n.hit }</td>
 					</tr>
-					<%} %>
+					<% } %>
 					</tbody>
 				</table>
 			</div>
