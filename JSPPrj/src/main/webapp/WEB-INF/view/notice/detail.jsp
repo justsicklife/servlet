@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -170,7 +170,11 @@
 									<th>첨부파일</th>
 									<td colspan="3" style="text-align:left; text-indent:10px;">
 										<c:forTokens var="fileName" items="${n.files }" delims="," varStatus="st">
-											<a href="${fileName }">${fileName }</a> 
+											<c:set var="style" value=""/>
+											<c:if test="${fn:endsWith(fileName,'.zip') }">
+												<c:set var="style" value="font-weight: bold; color:red;"/>
+											</c:if>
+											<a href="${fileName }" style="${style}">${fn:toUpperCase(fileName) }</a> 
 											<c:if test="${!st.last }">
 												/
 											</c:if>
@@ -178,7 +182,7 @@
 									</td>
 								</tr>
 								<tr class="content">
-									<td colspan="4"></td>
+									<td colspan="4">${n.content }</td>
 								</tr>
 							</tbody>
 						</table>
