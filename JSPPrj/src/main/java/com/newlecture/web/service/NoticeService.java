@@ -14,6 +14,11 @@ public class NoticeService {
 	}
 	
 	public List<Notice> getNoticeList(String field,String query,int page) {
+		String sql = "SELECT * FROM ("
+				+ "    SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,"
+				+ "    NOTICE.* FROM NOTICE"
+				+ ")"
+				+ "WHERE NUM BETWEEN 6 AND 10";
 		return null;
 	}
 	
@@ -22,6 +27,11 @@ public class NoticeService {
 	}
 	
 	public int getNoticeCount(String field,String query) {
+		String sql = "SELECT * FROM ("
+				+ "    SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,"
+				+ "    NOTICE.* FROM NOTICE"
+				+ ")"
+				+ "WHERE NUM BETWEEN 6 AND 10";
 		return 0;
 	}
 	
