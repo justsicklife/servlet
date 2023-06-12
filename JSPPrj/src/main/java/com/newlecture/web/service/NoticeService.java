@@ -36,6 +36,11 @@ public class NoticeService {
 	}
 	
 	public Notice getNotice(int id) {
+		String sql = "SELECT * FROM NOTICE WHERE 2";
+		return null;
+	}
+	
+	public Notice getNextNotice(int id ) {
 		String sql = "SELECT * FROM NOTICE"
 				+ "WHERE ID = ("
 				+ "    SELECT ID FROM NOTICE"
@@ -45,11 +50,10 @@ public class NoticeService {
 		return null;
 	}
 	
-	public Notice getNextNotice(int id ) {
-		return null;
-	}
-	
 	public Notice getPrevNotice(int id) {
+		String sql = "SELECT ID FROM (SELECT * FROM NOTICE ORDER BY REGDATE DESC)"
+				+ "WHERE REGDATE < (SELECT REGDATE FROM NOTICE WHERE ID = 3)"
+				+ "AND ROWNUM = 1";
 		return null;
 	}
  }
